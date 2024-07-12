@@ -8,6 +8,33 @@
     <h3>Links:</h3>
 <a href="/stats">Stats</a>
 <p>Lorem ipsum</p>
+
+<div class="content">
+        <h3>To-Do List</h3>
+
+        {% if tasks | length < 1 %}
+        <h3>There are no tasks...</h3>
+        {% else %}
+        <table>
+            <tr>
+                <th>Task</th>
+                <th>Added</th>
+                <th>Actions</th>
+            </tr>
+            {% for task in tasks %}
+            <tr>
+                <td>{{task.content}}</td>
+                <td>{{task.date_created.strftime("%Y-%m-%d}}</td>
+                <td>More</td>
+            </tr>
+        </table>
+        <form action="">
+            <input type="text" name="content" id="content"/>
+            <input type="submit" value="Add Task" id="btn_add"/>
+        </form>
+
+    </div>
+
 {% endblock body %}
 
 
