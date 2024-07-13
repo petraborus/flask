@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 {% block head %}
-<title>Home</title>
+<title>Dashboard</title>
 {% endblock head %}
 
 {% block body %}
@@ -9,11 +9,40 @@
 <a href="/stats">Stats</a>
 <p>Lorem ipsum</p>
 
+<br/>
+
+<div class="first_line">
+    <div class="projects_box">
+        <div class="projects_head">
+            <h4>Projects</h4>
+        </div>
+
+        <div class="projects">
+            <input type="submit" value="+ Add writing project" id="btn_add_project"/>
+        </div>
+    </div>
+
+    <div class="wc_box">
+        <div class="wc_head">
+            <h4>Total word count</h4>
+        </div>
+
+        <div class="word_count">
+            <br/>
+            <p>words</p>
+            <input type="submit" value="+ Log words" id="btn_log_words"/>
+        </div>
+    </div>
+
+</div>
+
+
+
 <div class="content">
         <h3>To-Do List</h3>
 
         {% if tasks | length < 1 %}
-        <h3>There are no tasks...</h3>
+        <p>There are no tasks...</p>
         {% else %}
         <table>
             <tr>
@@ -22,13 +51,20 @@
                 <th>Actions</th>
             </tr>
             {% for task in tasks %}
-            <tr>
-                <td>{{task.content}}</td>
-                <td>{{task.date_created.strftime("%Y-%m-%d}}</td>
-                <td>More</td>
-            </tr>
+                <tr>
+                    <td>{{task.content}}</td>
+                    <td>{{task.date_created.strftime("%Y-%m-%d")}}</td>
+                    <td>
+                        <a href="/delete/{{task.id}}">Delete</a>
+                        <br/>
+                        <a href="/edit/{{task.id}}">Edit</a>
+                    </td>
+                </tr>
+            {% endfor %}
         </table>
-        <form action="">
+        <br/>
+        {% endif %}
+        <form action="/" method="POST">
             <input type="text" name="content" id="content"/>
             <input type="submit" value="Add Task" id="btn_add"/>
         </form>
