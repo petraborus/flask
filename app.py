@@ -78,7 +78,6 @@ def edit(id:int):
         return render_template('edit.html', task=task)
 
 
-
 @app.route("/about")
 def about():
     return render_template('about.html', title="About")
@@ -86,7 +85,17 @@ def about():
 
 @app.route('/stats')
 def stats():
-    return render_template('page.html')
+    return render_template('stats.html')
+
+
+@app.route('/profile')
+def profile():
+    return render_template('profile.html')
+
+
+@app.route('/projects')
+def projects():
+    return render_template('projects.html')
 
 
 # runner and debugger

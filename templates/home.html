@@ -4,9 +4,27 @@
 {% endblock head %}
 
 {% block body %}
+
+    <nav class="navbar">
+        <!-- following video: https://www.youtube.com/watch?v=-Yw9gBHE60E -->
+        <div class="navdiv">
+            <div class="logo">
+                <!-- a means text can be clicked, # means the link takes person to same page they are on -->
+                <a href="#">WEBSITE</a>
+            </div>
+            <ul>
+                <!-- creating a list of options -->
+                <li><a href="#">Home</a> </li>
+                <li><a href="/profile">Profile</a> </li>
+                <li><a href="/projects">Projects</a> </li>
+                <li><a href="/stats">Stats</a> </li>
+                <button><a href="#">Sign In</a> </button>
+                <button><a href="#">Sign Up</a> </button>
+            </ul>
+        </div>
+    </nav>
+
     <h1>Home Page</h1>
-    <h3>Links:</h3>
-<a href="/stats">Stats</a>
 <p>Lorem ipsum</p>
 
 <br/>

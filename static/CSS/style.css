@@ -6,6 +6,41 @@ body{
     padding 0;
 }
 
+
+.navbar{
+    background: #f5f2f0; font-family: times new roman; padding-right: 15px; padding-left: 15px;
+
+
+    .navdiv{
+    display: flex; align-items: center; justify-content: space-between;
+    }
+
+    .logo a{
+        font-size: 25px; font-weight: 600; color: #c87ba0; text-decoration: none;
+    }
+
+    li{
+        list-style: none; display: inline-block;
+
+        a {
+            color: #465c69; font-size: 18; font-weight: bold; margin-right: 25px; text-decoration: none;
+        }
+    }
+
+    button{
+        background-color: #eba0aa; margin-left: 10px; border-radius: 5px; padding: 10px; border: 0px;
+
+        a{
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+        }
+    }
+}
+
+
+
+
 .projects_head{
     height: 55px;
     width: 450px;
@@ -37,7 +72,7 @@ body{
     margin-left: 20px;
     margin-right: auto;
     padding: 10px;
-    background: white;
+    background: #f5f2f0;
 
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: left;
@@ -75,7 +110,7 @@ body{
     margin-left: 30px;
     margin-right: auto;
     padding: 10px;
-    background: white;
+    background: #f5f2f0;
 
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
