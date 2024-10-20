@@ -1,0 +1,12 @@
+<form method="POST" action="{{ url_for('create_project') }}">
+    {{ form.hidden_tag() }}
+    <div>
+        {{ form.project_name.label }} {{ form.project_name(size=40) }}
+    </div>
+    <div>
+
+    </div>
+    <div>
+        {{ form.submit() }}
+    </div>
+</form>

@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+
+{% block head %}
+<title>Project</title>
+{% endblock head %}
+
+{% block body %}
+<br/>
+<h1 style="margin-left: 32px;">{{ project.project_name }}</h1>
+<br/>
+<p style="margin-left: 32px;">Created on: {{ project.date_created.strftime('%Y-%m-%d') }}</p>
+<br/>
+
+<div class="header_line">
+    <div class="wcd_box">
+        <div class="wcd_head">
+            <h4>Word count details</h4>
+        </div>
+
+        <div class="wc_text">
+            <p>Words written: </p> <p>{{ project.total_wc}}</p>
+            <br/>
+            <button style="margin-left: 140px;"><a href="{{ url_for('add_words') }}">+ Add Words</a> </button>
+            <br/>
+            <br/>
+            <p>Target word count: </p>
+            <br/>
+            <br/>
+        </div>
+    </div>
+
+    <div class="book_cover">
+        <button><a href="{{ url_for('create_project') }}">Change cover</a> </button>
+    </div>
+
+    <div class="planning">
+        <h2 style="margin-left: 32px;">Planning:</h2>
+        <br/>
+        <br/>
+        <div class="planning_buttons">
+            <button style="margin-left: 32px;"><a href="{{ url_for('worldbuilding', project_id=project.id) }}">Worldbuilding</a> </button>
+            <button style="margin-left: 32px;"><a href="{{ url_for('characters', project_id=project.id) }}">Characters</a> </button>
+            <button style="margin-left: 32px;"><a href="{{ url_for('plot', project_id=project.id) }}">Plot</a> </button>
+        </div>
+    </div>
+    <br/>
+</div>
+
+<br/>
+<br/>
+<h2 style="margin-left: 32px;">Goals:</h2>
+{% for goal in goals %}
+<div class="goals">
+    <div class="goal_name">
+        <p style="margin-left: 32px;">{{ goal.goal_name }}</p>
+    </div>
+    <div class="progress">
+        <p>Target word count: {{ goal.target}} </p>
+    </div>
+    <div class="progress_bar">
+        <progress value = "{{ goal.progress}}" max = "{{ goal.target}}"/>
+    </div>
+</div>
+{% endfor %}
+<br/>
+<br/>
+<br/>
+<div class="goal_button">
+        <button style="margin-left: 32px;"><a href="{{ url_for('add_goal', project_id=project.id) }}">+ Add Goal</a> </button>
+        <br/>
+    </div>
+
+
+
+{% endblock body %}

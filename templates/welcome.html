@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+{% block head %}
+<title>Home</title>
+{% endblock head %}
+{% block body %}
+    <h1>Welcome!</h1>
+    <p>Lorem ipsum</p>
+    <a href="{{url_for('login')}}">Login Page</a><br>
+    <a href="{{url_for('register')}}">Register Page</a><br>
+{% endblock body %}

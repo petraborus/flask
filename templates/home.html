@@ -4,29 +4,8 @@
 {% endblock head %}
 
 {% block body %}
-
-    <nav class="navbar">
-        <!-- following video: https://www.youtube.com/watch?v=-Yw9gBHE60E -->
-        <div class="navdiv">
-            <div class="logo">
-                <!-- a means text can be clicked, # means the link takes person to same page they are on -->
-                <a href="#">WEBSITE</a>
-            </div>
-            <ul>
-                <!-- creating a list of options -->
-                <li><a href="#">Home</a> </li>
-                <li><a href="/profile">Profile</a> </li>
-                <li><a href="/projects">Projects</a> </li>
-                <li><a href="/stats">Stats</a> </li>
-                <button><a href="#">Sign In</a> </button>
-                <button><a href="#">Sign Up</a> </button>
-            </ul>
-        </div>
-    </nav>
-
-    <h1>Home Page</h1>
-<p>Lorem ipsum</p>
-
+<br/>
+<h1 style="margin-left: 20px;">Home Page</h1>
 <br/>
 
 <div class="first_line">
@@ -36,7 +15,15 @@
         </div>
 
         <div class="projects">
-            <input type="submit" value="+ Add writing project" id="btn_add_project"/>
+            <br/>
+            <ul>
+            {% for project in projects %}
+            <li><a href="{{ url_for('project_page', id=project.id) }}">{{ project.project_name }}</a></li>
+            {% endfor %}
+            </ul>
+            <br/>
+            <button><a href="{{ url_for('create_project') }}">+ Add writing project</a> </button>
+            <br/>
         </div>
     </div>
 
@@ -48,13 +35,36 @@
         <div class="word_count">
             <br/>
             <p>words</p>
-            <input type="submit" value="+ Log words" id="btn_log_words"/>
+            <button><a href="{{ url_for('create_project') }}">+ Log Words</a> </button>
         </div>
     </div>
 
+
 </div>
 
+<br/><br/><br/><br/>
 
+<div class="second_row">
+    <div class="goal_box">
+        <div class="goal_header">
+            <h4>Current Goal</h4>
+        </div>
+        <div class="current_goal">
+
+        </div>
+    </div>
+
+    <div class="streak_box">
+        <div class="streak_header">
+            <h4>Writing Streak</h4>
+        </div>
+        <div class="current_streak">
+
+        </div>
+    </div>
+</div>
+
+<br/><br/><br/>
 
 <div class="content">
         <h3>To-Do List</h3>
@@ -88,6 +98,8 @@
         </form>
 
     </div>
+
+
 
 {% endblock body %}
 

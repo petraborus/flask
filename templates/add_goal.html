@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block head %}
+<title>Add Goal</title>
+{% endblock head %}
+
+{% block body %}
+<h1>Add Goal:</h1>
+<br/>
+<form method="POST" action="{{ url_for('add_goal', project_id=project_id) }}">
+    {{ form.hidden_tag() }}
+    <div>
+        {{ form.goal_name.label }} {{ form.goal_name(size=40) }}
+    </div>
+    <div>
+        {{ form.start_date.label }} {{ form.start_date(size=40) }}
+    </div>
+    <div>
+        {{ form.end_date.label }} {{ form.end_date(size=40)}}
+    </div>
+
+    <div>
+        {{ form.target.label }} {{ form.target(size=40)}}
+    </div>
+    <div>
+        {{ form.submit() }}
+    </div>
+</form>
+
+{% endblock body %}

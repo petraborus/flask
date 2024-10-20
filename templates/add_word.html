@@ -1,0 +1,12 @@
+<form method="POST" action="{{ url_for('add_words') }}">
+    {{ form.hidden_tag() }}
+    <div>
+        {{ form.added_words.label }} {{ form.added_words(size=40) }}
+    </div>
+    <div>
+
+    </div>
+    <div>
+        {{ form.submit() }}
+    </div>
+</form>

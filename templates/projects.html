@@ -5,7 +5,14 @@
 {% endblock head %}
 
 {% block body %}
-    <h1>Projects</h1>
-    <p>Lorem ipsum</p>
+<br/>
+<h1 style="margin-left: 20px;">Projects:</h1>
+<br/>
+<ul>
+    {% for project in projects %}
+    <li><a href="{{ url_for('project_page', id=project.id) }}">{{ project.project_name }}</a></li>
+    {% endfor %}
+</ul>
+<button><a href="{{ url_for('create_project') }}">+ Create a new project</a> </button>
 
 {% endblock body %}
